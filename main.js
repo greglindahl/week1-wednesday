@@ -72,18 +72,39 @@ console.log(numberPets);
 // Use the following array for questions 13-16:
 var people = ['Bill', 'Ted', 'Emily', 'Andrea', 'Doug'];
 
-// 13. Add two new people after 'Doug'
+console.log('Question 13. Add two new people after "Doug"');
+people.push('Jon', 'Jane');
+console.log(people); 
 
-// 14. Remove everybody except 'Andrea' and 'Ted'
+console.log("Question 14. Remove everybody except 'Andrea' and 'Ted'");
+var people = ['Bill', 'Ted', 'Emily', 'Andrea', 'Doug', 'Jon', 'Jane'];
+// var fewerPeople = people.slice(1, 3, 4, 5);
+var fewerPeople = people.filter(function(person) {
+	return person === 'Andrea' || person === 'Ted';
+});
+console.log(fewerPeople);
 
-// 15. Add a new person to the beginning of the Array
+console.log("Question 15. Add a new person to the beginning of the Array");
+people.unshift('Ann');
+console.log(people);
 
-// 16. Arrange the items alphabetically. Store this Array as orderedPeople
+console.log("Question 16. Arrange the items alphabetically. Store this Array as orderedPeople");
+var orderedPeople = people.sort();
+console.log(orderedPeople);
 
-// 17. Create an array of arrays with the following three arrays:
+console.log("Question 17. Create an array of arrays with the following three arrays:");
 var array1 = ["Fido", "Spot", "Rex", "Sparky"]
 var array2 = ["Bulldog", "Lab", "Dalmation", "Beagle"]
 var array3 = ["White", "Black", "Spotted", "Tri-color"]
+var allArrays = array1.concat(array2, array3);
+console.log(allArrays);
+
+var array1 = ["Fido", "Spot", "Rex", "Sparky"]
+var array2 = ["Bulldog", "Lab", "Dalmation", "Beagle"]
+var array3 = ["White", "Black", "Spotted", "Tri-color"]
+var array4 = [];
+array4.push(array1 + array2 + array3);
+console.log(array4);
 
 // Goal:
 var array4 = [
@@ -92,14 +113,30 @@ var array4 = [
                 ["White", "Black", "Spotted", "Tri-color"]
               ]
 
-// 18. Remove "Sparky" and "White" from the above array of arrays.
+console.log('Question 18. Remove "Sparky" and "White" from the above array of arrays.');
+// var fewDogs = array4.slice();
+array4[0].splice(3, 1);
+array4[2].splice(0, 1);
+console.log(array4);
 
-// BONUS 1: Try to arrange the following items from smallest to largest:
+console.log('BONUS 1: Try to arrange the following items from smallest to largest:');
 var sortingNumbers = [2, 5, 98, 55, 77, 300]
-// Explain why it doesn't sort as expected.
+var orderedNumbers = sortingNumbers.sort();
+console.log(orderedNumbers);
 
-// BONUS 2: Transform array1 into array2 using as few lines of code as you can without directly changing the value of an item (ie array1[0] = item)
-var array1 = [2, 'dog', 34, 'Bill', 'plant', 'mug', 17];
+console.log("Explain why it doesn't sort as expected.");
+console.log('Although 2 is numerically smaller than 98 or 300, lexicographically, it is larger, so 7 appears at the very right of the sorted array.');
 
+console.log('BONUS 2: Transform array1 into array2 using as few lines of code as you can without directly changing the value of an item (ie array1[0] = item');
+var array1 = [2, 'dog', 34, 'jim', 'Bill', 'plant', 'mug', 17];
+
+array1.forEach(function(item) {
+	if (item === 34 || item === 'mug') {
+		var index = array1.indexOf(item);
+		array1.splice(index, 1);
+	}
+});
+
+console.log(array1);
 //Goal
 var array2 = ['plant', 17, 2, 'Bill', 'dog'];
